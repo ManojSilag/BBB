@@ -1,0 +1,43 @@
+.header{
+    height: 85vh;
+    background-image: linear-gradient(
+    to right bottom,
+    rgba(pink, 0.7),
+    rgba(red, 0.6)),
+    url(../img/wedd-1.jpg);
+    background-size: cover;
+    background-position: right;
+    /* The background-position property sets the starting position of a background image. */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    /* The clip-path property in CSS allows you to specify a specific region of an element to display, rather than showing the complete area. */
+    position: relative;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)){
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+        height: 95vh;
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), only screen and(-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), only screen and(min-width: 125em){
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.7),
+            rgba($color-primary-dark, 0.8)),
+            url(../img/hero.jpg);
+    }
+
+
+    @include respond(phone){
+    clip-path: polygon(0 0 , 100% 0, 100% 85vh, 0 100%);
+    }
+
+
+    &__text-box{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* The translate() method moves an element from its current position (according to the parameters given for the X-axis and the Y-axis) */
+        text-align: center;
+        }
+}
